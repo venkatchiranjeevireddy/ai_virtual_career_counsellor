@@ -22,29 +22,38 @@ load_dotenv()
 st.markdown("""
 <style>
     .stApp {
-        background-color: #f0f2f6;
+        background-color: #0f172a;
+        color: #f8fafc;
     }
-    .st-emotion-cache-1y4p8pa {
-        max-width: 100%;
+    h1, h2, h3, .stMarkdown {
+        color: #f8fafc !important;
     }
-    .st-emotion-cache-1v0mbdj {
-        border-radius: 10px;
-        border: 1px solid #e1e4e8;
+    section[data-testid="stSidebar"] {
+        background-color: #1e293b;
+        color: #f8fafc;
     }
     .stButton>button {
-        border-radius: 20px;
-        border: 1px solid #4B8BBE;
         background-color: #4B8BBE;
         color: white;
-        transition: all 0.2s;
+        border-radius: 20px;
+        border: none;
         font-weight: 500;
+        transition: 0.3s ease;
     }
     .stButton>button:hover {
-        border: 1px solid #1E5A8C;
         background-color: #1E5A8C;
     }
     .stChatInputContainer {
-        border-radius: 15px;
+        border-radius: 15px !important;
+        background-color: #334155 !important;
+        color: #f8fafc !important;
+    }
+    .stChatMessage {
+        background-color: #1e293b;
+        border-radius: 10px;
+        padding: 10px;
+        margin-bottom: 10px;
+        color: #f8fafc;
     }
 </style>
 """, unsafe_allow_html=True)
