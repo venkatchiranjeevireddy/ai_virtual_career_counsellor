@@ -5,3 +5,4 @@ torch
 pandas
 nltk
 scikit-learn
+PyPDF2
