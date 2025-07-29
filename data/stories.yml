@@ -1,0 +1,46 @@
+# Stories for conversation flows
+version: "3.1"
+
+stories:
+- story: Happy Path - Full Conversation
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: inform_interest # User provides name, but we capture as interest for simplicity
+    entities:
+    - name: "Alex"
+  - action: action_store_name
+  - intent: inform_interest
+  - action: utter_ask_strength
+  - intent: inform_strength
+  - action: utter_ask_subject
+  - intent: inform_subject
+  - action: utter_ask_resume
+  - intent: affirm # User says ok/done after uploading resume
+  - action: action_suggest_career
+
+- story: User asks for advanced feature after recommendation
+  steps:
+  - story: Happy Path - Full Conversation # Start with the full path
+  - intent: request_skill_gap # User chooses an advanced feature
+  - action: action_skill_gap_analysis
+  - action: utter_now_what # Ask again what to do next
+
+- story: User asks for another advanced feature
+  steps:
+  - story: Happy Path - Full Conversation
+  - intent: request_day_in_life
+  - action: action_generate_day_in_life
+  - action: utter_now_what
+
+- story: User wants to do a mock interview
+  steps:
+  - story: Happy Path - Full Conversation
+  - intent: request_mock_interview
+  - action: action_mock_interview
+
+- story: User is in interview mode and responds
+  steps:
+  - story: User wants to do a mock interview # Start the interview
+  - intent: inform_interest # User provides an answer to the interview question
+  - action: action_mock_interview # Bot asks the next question

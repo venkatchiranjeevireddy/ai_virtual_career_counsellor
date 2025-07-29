@@ -1,0 +1,131 @@
+# NLU training data
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - good morning
+    - good evening
+    - hey there
+    - let's start
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you around
+    - see you later
+    - quit
+
+- intent: affirm
+  examples: |
+    - yes
+    - indeed
+    - of course
+    - that's right
+    - correct
+    - sure
+    - ok
+    - fine
+    - done
+    - Generate PDF Report
+
+- intent: deny
+  examples: |
+    - no
+    - never
+    - I don't think so
+    - not really
+    - no way
+
+- intent: inform_interest
+  examples: |
+    - I love creating things and expressing myself visually
+    - I am passionate about coding and building software
+    - I enjoy solving complex problems with data
+    - I am interested in understanding the human mind
+    - I like helping people who are sick
+    - I am good at debating and arguing
+    - I enjoy working with numbers and financial markets
+    - I like to draw and paint
+    - I'm into technology and computers
+    - Biology and chemistry are my favorite subjects
+    - I want a career in business management
+    - I am fascinated by law and justice
+    - I love writing stories and poems
+    - I want to be a doctor
+    - I am interested in data science
+    - I love designing posters and logos
+
+- intent: inform_strength
+  examples: |
+    - My strength is analytical thinking
+    - I am very creative
+    - I am a great communicator
+    - I am good at math
+    - I have strong problem-solving skills
+    - I am a natural leader
+    - I am very empathetic
+    - I am detail-oriented
+    - I am good with my hands
+
+- intent: inform_subject
+  examples: |
+    - I like Physics and Math
+    - I enjoy English literature
+    - I am good at Biology
+    - I love studying history
+    - Computer Science is my favorite
+    - I am interested in economics
+
+- intent: ask_career_path
+  examples: |
+    - What career should I choose?
+    - Can you suggest a career for me?
+    - I am confused about my career
+    - What are my options?
+    - Help me find a job path
+
+- intent: restart_conversation
+  examples: |
+    - restart
+    - start over
+    - let's begin again
+
+- intent: inform_resume
+  examples: |
+    - here is my resume
+    - I have uploaded my resume
+    - /inform_resume{"resume_keywords": "Experienced in Python, Java, and SQL"}
+
+- intent: request_skill_gap
+  examples: |
+    - Analyze my skill gap
+    - show me my skill gap
+    - skill gap analysis
+    - what skills am I missing?
+    - Analyze Skill Gap
+
+- intent: request_day_in_life
+  examples: |
+    - Simulate a day in the life
+    - show me a day in the life
+    - what is it like to be a [software engineer](job_role)?
+    - Simulate a 'Day in the Life'
+
+- intent: request_mock_interview
+  examples: |
+    - Start a mock interview
+    - let's do a mock interview
+    - interview me
+    - Start a Mock Interview
+
+- intent: out_of_scope
+  examples: |
+    - what is the weather like?
+    - tell me a joke
+    - who is the president?
+    - I want to order a pizza

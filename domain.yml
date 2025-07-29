@@ -1,0 +1,100 @@
+# The chatbot's domain
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - inform_interest
+  - inform_strength
+  - inform_subject
+  - ask_career_path
+  - restart_conversation
+  - inform_resume
+  - request_skill_gap
+  - request_day_in_life
+  - request_mock_interview
+  - out_of_scope
+
+entities:
+  - name
+
+slots:
+  name:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: name
+  user_interests:
+    type: text
+    mappings:
+    - type: from_text
+      intent: inform_interest
+  user_strengths:
+    type: text
+    mappings:
+    - type: from_text
+      intent: inform_strength
+  user_subjects:
+    type: text
+    mappings:
+    - type: from_text
+      intent: inform_subject
+  resume_keywords:
+    type: text
+    mappings:
+    - type: from_text
+      intent: inform_resume
+  recommended_career:
+    type: text
+    mappings: []
+  report_path:
+    type: text
+    mappings: []
+  interview_mode:
+    type: bool
+    mappings: []
+
+responses:
+  utter_greet:
+  - text: "Hello! I am your AI Career Counsellor. I'm here to help you discover a career path that aligns with your interests and strengths. To start, what is your name?"
+  utter_ask_interest:
+  - text: "Great to meet you, {name}! Let's start with your interests. What do you enjoy doing in your free time? What are you passionate about?"
+  utter_ask_strength:
+  - text: "That's interesting! Now, what would you say are your biggest strengths? For example, are you a great problem-solver, a creative thinker, or a natural leader?"
+  utter_ask_subject:
+  - text: "Excellent. What were your favorite subjects in school or college? This helps me understand your academic inclinations."
+  utter_ask_resume:
+  - text: "Thank you. If you have a resume, please upload it using the sidebar. This will greatly improve the accuracy of my recommendations. Once you have uploaded it, just say 'ok' or 'done'."
+  utter_goodbye:
+  - text: "Goodbye! Feel free to come back anytime to continue your career journey."
+  utter_ask_restart:
+  - text: "Are you sure you want to restart our conversation? All progress will be lost."
+  utter_now_what:
+  - text: "I can now provide a deeper analysis. What would you like to do?"
+    buttons:
+    - title: "Analyze Skill Gap"
+      payload: "/request_skill_gap"
+    - title: "Simulate a 'Day in the Life'"
+      payload: "/request_day_in_life"
+    - title: "Start a Mock Interview"
+      payload: "/request_mock_interview"
+    - title: "Generate PDF Report"
+      payload: "/affirm"
+  utter_default:
+  - text: "I'm sorry, I didn't quite understand that. I'm an AI career counsellor. You can ask me to suggest a career, analyze your skills, or run a mock interview."
+
+actions:
+- action_store_name
+- action_suggest_career
+- action_generate_report
+- action_restart
+- action_skill_gap_analysis
+- action_generate_day_in_life
+- action_mock_interview
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

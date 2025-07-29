@@ -1,0 +1,6 @@
+# Configuration for action server
+# This file configures the connection to your custom action server.
+# It's essential for Rasa to be able to call your custom Python code.
+
+action_endpoint:
+ url: "http://localhost:5055/webhook"

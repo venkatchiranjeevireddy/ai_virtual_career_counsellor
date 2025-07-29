@@ -1,0 +1,26 @@
+# Rules for conversation handling
+version: "3.1"
+
+rules:
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Handle restart
+  steps:
+  - intent: restart_conversation
+  - action: action_restart
+  - action: utter_greet
+
+- rule: Handle report generation request
+  steps:
+  - intent: affirm
+  - slot_was_set:
+      - recommended_career
+  - action: action_generate_report
+
+- rule: Handle fallback
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default
